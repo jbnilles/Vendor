@@ -73,6 +73,38 @@ namespace VendorTracker.Controllers
       Vendor.deleteAllVendors();
       return RedirectToAction("Index");
     }
+    [HttpGet("/vendor/{id}/edit")]
+    public ActionResult EditVendor(int id){
+      Vendor v = Vendor.getVendorById(id);
+      return View(v);
+    }
+    [HttpPost("/vendor/{id}/edit")]
+    public ActionResult EditVendor(int id, string name, string description){
+      Vendor v = Vendor.getVendorById(id);
+      v.Name = name;
+      v.Description = description;
+      foreach (Order o in v.getOrders())
+      {
+          o.VendorName = name;
+      }
+     return RedirectToAction("Details");
+    }
+    [HttpGet("/vendor/{id}/order/{oid}/edit")]
+    public ActionResult EditOrder(int id, int oid){
+      Vendor v = Vendor.getVendorById(id);
+      Order o = v.getOrderById(oid);
+      return View(o);
+    }
+    [HttpPost("/vendor/{id}/order/{oid}/edit")]
+    public ActionResult EditOrder(int id, int oid, string title, string description, double price, DateTime orderDate){
+      Vendor v = Vendor.getVendorById(id);
+      Order o = v.getOrderById(oid);
+      o.Title = title;
+      o.Description = description;
+      o.Price = price;
+      o.Date = orderDate;
+     return RedirectToAction("ShowOrder");
+    }
 
 
 

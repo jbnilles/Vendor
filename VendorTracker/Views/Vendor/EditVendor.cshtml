@@ -1,0 +1,13 @@
+<link rel="stylesheet" type="text/css" href="~/css/styles.css" />
+<h1>Edit Vendor</h1>
+
+
+<form action="/vendor/@Model.Id/edit" method="post">
+  <label for="name">Vendor name</label>
+  <input id="name" name="name" value="@Model.Name" type="text">
+  <label for="description">Vendor Description</label>
+  <input id="description" name="description" value="@Model.Description" type="text">
+  <button type="submit">Edit</button>
+</form>
+
+<a href="/vendor">Return to Vendors Page.</a>

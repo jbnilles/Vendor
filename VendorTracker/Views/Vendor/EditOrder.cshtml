@@ -1,0 +1,18 @@
+<link rel="stylesheet" type="text/css" href="~/css/styles.css" />
+<h1>Edit Order</h1>
+
+
+<form action="/vendor/@Model.VendorId/order/@Model.Id/edit" method="post">
+  <label for="title">Order Title</label>
+  <input id="title" name="title" value="@Model.Title" type="text">
+  <label for="description">Order Description</label>
+  <input id="description" name="description" value="@Model.Description" type="text">
+  <label for="price">Order price</label>
+  <input id="price" name="price" value="@Model.Price" step = ".01" type="number">
+  <label for="orderDate">Order date</label>
+  <input id="orderDate" name="orderDate" value="@Model.Date" type="date">
+  <button type="submit">Edit</button>
+</form>
+
+
+<a href="/vendor/@Model.VendorId">Return to Vendor Page.</a>
