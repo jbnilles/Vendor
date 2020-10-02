@@ -16,5 +16,6 @@ namespace VendorTracker.Models
             Date = date;
             Id = id;
         }
+        
     }
 }

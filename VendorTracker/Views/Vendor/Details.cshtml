@@ -22,7 +22,13 @@ else
         <ul>
         @foreach (Order o in Model.getOrders())
         {
-            <li><a href="/Order/@o.Id">@o.Title:</a><ul><li>Date: @o.Date.ToShortDateString()</li> <li>Price: $@o.Price</li></ul></li>
+            <li>
+              <a href="/vendor/@Model.Id/order/@o.Id">@o.Title:</a>
+              <ul>
+                <li>Date: @o.Date.ToShortDateString()</li>
+                <li>Price: $@o.Price</li>
+              </ul>
+            </li>
         } 
         </ul>
       }
@@ -31,7 +37,7 @@ else
     </div>
 
 
-    <h3><a href='/vendor/@Model.Id/order/new'>Add a new Order</a></h3>
+    
     
   </div>
 }

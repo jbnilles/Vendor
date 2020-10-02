@@ -34,9 +34,20 @@ namespace VendorTracker.Models
         {
             return orders.Count;
         }
-        public static Vendor getVedorById(int id)
+        public static Vendor getVendorById(int id)
         {
             foreach (Vendor item in _instances)
+            {
+                if(item.Id == id)
+                {
+                    return item;
+                }
+            }
+            return null;
+        }
+        public Order getOrderById(int id)
+        {
+            foreach (Order item in orders)
             {
                 if(item.Id == id)
                 {
