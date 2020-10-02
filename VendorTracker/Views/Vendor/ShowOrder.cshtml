@@ -19,8 +19,16 @@ else
           @Model.Title
           <ul>
             <li>Description: @Model.Description</li>
-            <li>Date: @Model.Date.ToShortDateString()</li>
+            <li>Date: @Model.OrderDate.ToShortDateString()</li>
             <li>Price: $@Model.Price</li>
+            @if(@Model.Paid)
+            {
+              <li>Paid</li>
+            }
+            else
+            {
+              <li>Not Paid</li>
+            }
           </ul>
         </li>
       </ul>

@@ -25,8 +25,16 @@ else
             <li>
               <a href="/vendor/@Model.Id/order/@o.Id">@o.Title:</a> <a href="/vendor/@Model.Id/order/@o.Id/delete">delete</a>
               <ul>
-                <li>Date: @o.Date.ToShortDateString()</li>
+                <li>Date: @o.OrderDate.ToShortDateString()</li>
                 <li>Price: $@o.Price</li>
+                @if(@o.Paid)
+                {
+                  <li>Paid</li>
+                }
+                else
+                {
+                  <li>Not Paid</li>
+                }
               </ul>
             </li>
         } 

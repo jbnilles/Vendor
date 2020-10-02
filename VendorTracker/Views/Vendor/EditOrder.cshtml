@@ -10,8 +10,19 @@
   <label for="price">Order price</label>
   <input id="price" name="price" value="@Model.Price" step = ".01" type="number">
   <label for="orderDate">Order date</label>
-  <input id="orderDate" name="orderDate" value="@Model.Date" type="date">
+  <input id="orderDate" name="orderDate" value="@Model.OrderDate.ToString("yyyy-MM-dd")" type="date">
+  <label for="paid">Check if Order is paid for.</label>
+  @if(Model.Paid)
+  {
+    <input id="paid" name="paid" checked type="checkbox">
+    <button type="submit">Edit</button>
+  }
+  else
+  {
+    <input id="paid" name="paid"  type="checkbox">
   <button type="submit">Edit</button>
+  }
+  
 </form>
 
 

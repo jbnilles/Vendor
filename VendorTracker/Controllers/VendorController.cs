@@ -1,3 +1,4 @@
+
 using Microsoft.AspNetCore.Mvc;
 using VendorTracker.Models;
 using System;
@@ -36,9 +37,14 @@ namespace VendorTracker.Controllers
       return View(v);
     }
     [HttpPost("/vendor/{id}/order/new")]
-    public ActionResult CreateOrder(string title, string description, double price, DateTime orderDate, int id){
+    public ActionResult CreateOrder(string title, string description, double price, DateTime orderDate, bool paid, int id){
       Vendor v =  Vendor.getVendorById(id);
-      v.addOrder(new Order(title,description,price,orderDate,v.getOrderCount(),v.Name,v.Id));
+      // bool isPaid = true;
+      // if(paid != "true")
+      // {
+      //   isPaid = false;
+      // }
+      v.addOrder(new Order(title,description,price,orderDate,v.getOrderCount(),v.Name, v.Id, paid ));
       return RedirectToAction("Details");
     }
     [HttpGet("/vendor/{id}/order/{oid}")]
@@ -96,13 +102,14 @@ namespace VendorTracker.Controllers
       return View(o);
     }
     [HttpPost("/vendor/{id}/order/{oid}/edit")]
-    public ActionResult EditOrder(int id, int oid, string title, string description, double price, DateTime orderDate){
+    public ActionResult EditOrder(int id, int oid, string title, string description, double price, DateTime orderDate, bool paid){
       Vendor v = Vendor.getVendorById(id);
       Order o = v.getOrderById(oid);
       o.Title = title;
       o.Description = description;
       o.Price = price;
-      o.Date = orderDate;
+      o.OrderDate = orderDate;
+      o.Paid = paid; 
      return RedirectToAction("ShowOrder");
     }
 
