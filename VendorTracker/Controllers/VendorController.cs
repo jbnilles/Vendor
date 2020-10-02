@@ -38,7 +38,7 @@ namespace VendorTracker.Controllers
     [HttpPost("/vendor/{id}/order/new")]
     public ActionResult CreateOrder(string title, string description, double price, DateTime orderDate, int id){
       Vendor v =  Vendor.getVendorById(id);
-      v.addOrder(new Order(title,description,price,orderDate,v.getOrderCount()));
+      v.addOrder(new Order(title,description,price,orderDate,v.getOrderCount(),v.Name,v.Id));
       return RedirectToAction("Details",v);
     }
     [HttpGet("/vendor/{id}/order/{oid}")]
