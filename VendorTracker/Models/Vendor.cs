@@ -4,17 +4,17 @@ namespace VendorTracker.Models
     public class Vendor
     {
         public string Name  {get;set;}
-        public string Descripion {get;set;}
+        public string Description {get;set;}
         public int Id {get;set;}
 
         private List<Order> orders = new List<Order>{};
 
         private static List<Vendor> _instances = new List<Vendor>{};
 
-        public Vendor(string name, string descripion)
+        public Vendor(string name, string description)
         {
             Name = name;
-            Descripion = descripion;
+            Description = description;
             Id = _instances.Count;
             _instances.Add(this);
         }

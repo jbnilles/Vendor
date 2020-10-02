@@ -6,9 +6,9 @@ namespace VendorTracker.Models
         public string Title {get;set;}
         public string Description {get;set;}
         public double Price {get;set;}
-        public int id {get;set;}
+        public int Id {get;set;}
         public DateTime Date {get;set;}
-        public Order(string title, string description, double price, DateTime date, int Id)
+        public Order(string title, string description, double price, DateTime date, int id)
         {
             Title = title;
             Description = description;
