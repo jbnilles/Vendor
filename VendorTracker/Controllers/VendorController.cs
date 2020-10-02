@@ -47,10 +47,30 @@ namespace VendorTracker.Controllers
       Order o = v.getOrderById(oid);
       return View(o);
     }
-    [HttpGet("/vendor/{id}/delete")]
-    public ActionResult ShowOrder(int id){
+    [HttpGet("/vendor/{id}/order/{oid}/delete")]
+    public ActionResult DeleteOrder(int id, int oid){
       Vendor v =  Vendor.getVendorById(id);
-      v.delete();
+      v.deleteOrder(oid);
+      
+      return RedirectToAction("Details");
+    }
+    [HttpGet("/vendor/{id}/order/deleteAll")]
+    public ActionResult DeleteAllOrders(int id){
+      Vendor v =  Vendor.getVendorById(id);
+      v.deleteAllOrders();;
+      return RedirectToAction("Details");
+    }
+
+
+    [HttpGet("/vendor/{id}/delete")]
+    public ActionResult DeleteVendor(int id){
+      Vendor v =  Vendor.getVendorById(id);
+      v.deleteVendor();
+      return RedirectToAction("Index");
+    }
+    [HttpGet("/vendor/deleteAll")]
+    public ActionResult DeleteAllVendors(int id){
+      Vendor.deleteAllVendors();
       return RedirectToAction("Index");
     }
 

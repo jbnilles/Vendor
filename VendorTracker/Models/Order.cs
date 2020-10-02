@@ -21,5 +21,6 @@ namespace VendorTracker.Models
             VendorName = vendorName;
         }
         
+        
     }
 }

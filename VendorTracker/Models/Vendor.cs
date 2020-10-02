@@ -56,9 +56,22 @@ namespace VendorTracker.Models
             }
             return null;
         }
-        public void delete()
+        public void deleteVendor()
         {
             _instances.Remove(this);
+        }
+        public static void deleteAllVendors()
+        {
+            _instances.Clear();
+        }
+        public void deleteOrder(int oId)
+        {
+            Order orderToBeDeleted = getOrderById(oId);
+            orders.Remove(orderToBeDeleted);
+        }
+        public void deleteAllOrders()
+        {
+            orders.Clear();
         }
     }
 }
