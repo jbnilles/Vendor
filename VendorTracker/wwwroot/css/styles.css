@@ -7,6 +7,7 @@ div#header {
   background:#333;
   padding:8px;
   
+  
 }
 div#footer {
   position:fixed;
@@ -18,5 +19,19 @@ div#footer {
   padding:8px;
 }
 .jumbotron {
-text-align: center;
+  text-align: center;
+  background-color: #ffb0b0;
+}
+.container {
+  background-color: burlywood;
+  padding-bottom: 50px;
+  padding-top: 50px;
+  margin-top: 50px;
+}
+body {
+  background-color: #f1ebeb;
+}
+.card {
+  text-align: center;
+  background-color: #d6d0d0;
 }

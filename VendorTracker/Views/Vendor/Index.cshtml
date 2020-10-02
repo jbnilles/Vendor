@@ -1,5 +1,8 @@
 @using VendorTracker.Models;
-<div class="Container">
+@{
+  Layout = "_Layout";
+}
+<div class="container">
   <div class="jumbotron">
     <h1>Welcome to the Vendor Page</h1>
   </div>
@@ -7,10 +10,14 @@
   <div id="vendorList">
     @if(Model.Count == 0)
     {
-      <h1>There are currently no Venders!</h1>
+      <div class="card">
+        <h4>There are currently no Venders!</h4>
+      </div>
     }
     else
     {
+      <h1>Vendors</h1>
+      <hr>
       <ul>
       @foreach (Vendor v in Model)
       {
@@ -18,13 +25,13 @@
       }
       </ul>
     }
-
+    <button class="btn btn-danger" onclick="window.location.href='/vendor/new';">Add a Vendor</button>
+    <button class="btn btn-danger" onclick="window.location.href='/vendor/deleteAll';">Delete all Vendors</button>
 
   </div>
 
 
-  <h3><a href='/vendor/new'>Add a new Vendor</a></h3>
-  
-  <h3><a href='/vendor/deleteAll'>Delete All Vendors</a></h3>
   
 </div>
+@Html.Partial("Header")
+  @Html.Partial("Footer")
