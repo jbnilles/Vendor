@@ -14,7 +14,7 @@
       <ul>
       @foreach (Vendor v in Model)
       {
-          <li><a href="/vendor/@v.Id">@v.Name</a></li>
+          <li><a href="/vendor/@v.Id">@v.Name</a> | <a href="/vendor/@v.Id/delete">delete</a></li>
       }
       </ul>
     }

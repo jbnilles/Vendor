@@ -56,5 +56,9 @@ namespace VendorTracker.Models
             }
             return null;
         }
+        public void delete()
+        {
+            _instances.Remove(this);
+        }
     }
 }

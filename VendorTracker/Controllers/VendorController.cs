@@ -39,13 +39,19 @@ namespace VendorTracker.Controllers
     public ActionResult CreateOrder(string title, string description, double price, DateTime orderDate, int id){
       Vendor v =  Vendor.getVendorById(id);
       v.addOrder(new Order(title,description,price,orderDate,v.getOrderCount(),v.Name,v.Id));
-      return RedirectToAction("Details",v);
+      return RedirectToAction("Details");
     }
     [HttpGet("/vendor/{id}/order/{oid}")]
     public ActionResult ShowOrder(int id, int oid){
       Vendor v =  Vendor.getVendorById(id);
       Order o = v.getOrderById(oid);
       return View(o);
+    }
+    [HttpGet("/vendor/{id}/delete")]
+    public ActionResult ShowOrder(int id){
+      Vendor v =  Vendor.getVendorById(id);
+      v.delete();
+      return RedirectToAction("Index");
     }
 
 
