@@ -3,6 +3,7 @@
 }
 <div class="container">
   <h1>Edit Vendor</h1>
+  <hr>
 
 
   <form action="/vendor/@Model.Id/edit" method="post">
@@ -10,10 +11,10 @@
     <input id="name" name="name" value="@Model.Name" type="text">
     <label for="description">Vendor Description</label>
     <input id="description" name="description" value="@Model.Description" type="text">
-    <button type="submit">Edit</button>
+    <button class="btn btn-primary" type="submit">Edit</button>
   </form>
-
-  <a href="/vendor">Return to Vendors Page.</a>
+<hr>
+  <button class="btn btn-outline-danger" onclick="window.location.href='/vendor/@Model.Id';">Previous Page</button>
 </div>
 @Html.Partial("Header")
   @Html.Partial("Footer")

@@ -1,4 +1,8 @@
 @using VendorTracker.Models;
+@{
+  Layout = "_Layout";
+}
+<div class="container">
 @if(Model == null)
 {
   <h1>The Order Does Not Exist</h1>
@@ -6,7 +10,7 @@
 }
 else
 {
-  <div class="Container">
+  
     <div class="jumbotron">
       <h1>Order Page</h1>
       
@@ -38,9 +42,12 @@ else
     </div>
 
 
-    <h3><a href='/vendor/@Model.VendorId'>Return to @Model.VendorName page.</a></h3>
-    <h3><a href='/vendor/@Model.VendorId/order/@Model.Id/edit'>Edit Order</a></h3>
     
-  </div>
+    <button class="btn btn-danger" onclick="window.location.href='/vendor/@Model.VendorId';">Return to @Model.VendorName Page</button>
+    <button class="btn btn-danger" onclick="window.location.href='/vendor/@Model.VendorId/order/@Model.Id/edit';">Edit Order</button>
+    
+  
 }
-
+</div>
+@Html.Partial("Header")
+  @Html.Partial("Footer")

@@ -1,4 +1,7 @@
-<link rel="stylesheet" type="text/css" href="~/css/styles.css" />
+@{
+  Layout = "_Layout";
+}
+<div class="container">
 <h1>Edit Order</h1>
 
 
@@ -12,18 +15,23 @@
   <label for="orderDate">Order date</label>
   <input id="orderDate" name="orderDate" value="@Model.OrderDate.ToString("yyyy-MM-dd")" type="date">
   <label for="paid">Check if Order is paid for.</label>
-  @if(Model.Paid)
-  {
+  @* @if(Model.Paid)
+  { *@
     <input id="paid" name="paid" checked type="checkbox">
-    <button type="submit">Edit</button>
-  }
+    
+  @* }
   else
   {
     <input id="paid" name="paid"  type="checkbox">
-  <button type="submit">Edit</button>
-  }
+  
+  } *@
+  <button class="btn btn-primary" type="submit">Edit</button>
   
 </form>
+<hr>
+<button class="btn btn-danger" onclick="window.location.href='/vendor/@Model.VendorId/order/@Model.Id';">Return to Order Page</button>
 
+</div>
 
-<a href="/vendor/@Model.VendorId">Return to Vendor Page.</a>
+@Html.Partial("Header")
+  @Html.Partial("Footer")
