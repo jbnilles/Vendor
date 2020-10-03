@@ -2,36 +2,29 @@
   Layout = "_Layout";
 }
 <div class="container">
-<h1>Edit Order</h1>
-
-
-<form action="/vendor/@Model.VendorId/order/@Model.Id/edit" method="post">
-  <label for="title">Order Title</label>
-  <input id="title" name="title" value="@Model.Title" type="text">
-  <label for="description">Order Description</label>
-  <input id="description" name="description" value="@Model.Description" type="text">
-  <label for="price">Order price</label>
-  <input id="price" name="price" value="@Model.Price" step = ".01" type="number">
-  <label for="orderDate">Order date</label>
-  <input id="orderDate" name="orderDate" value="@Model.OrderDate.ToString("yyyy-MM-dd")" type="date">
-  <label for="paid">Check if Order is paid for.</label>
-  @* @if(Model.Paid)
-  { *@
-    <input id="paid" name="paid" checked type="checkbox">
-    
-  @* }
-  else
-  {
-    <input id="paid" name="paid"  type="checkbox">
-  
-  } *@
-  <button class="btn btn-primary" type="submit">Edit</button>
-  
-</form>
-<hr>
-<button class="btn btn-danger" onclick="window.location.href='/vendor/@Model.VendorId/order/@Model.Id';">Return to Order Page</button>
-
+  <h1>Edit Order</h1>
+  <form action="/vendor/@Model.VendorId/order/@Model.Id/edit" method="post">
+    <label for="title">Order Title</label>
+    <input id="title" name="title" value="@Model.Title" type="text">
+    <label for="description">Order Description</label>
+    <input id="description" name="description" value="@Model.Description" type="text">
+    <label for="price">Order price</label>
+    <input id="price" name="price" value="@Model.Price" step = ".01" type="number">
+    <label for="orderDate">Order date</label>
+    <input id="orderDate" name="orderDate" value="@Model.OrderDate.ToString("yyyy-MM-dd")" type="date">
+    <label for="paid">Check if Order is paid for.</label>
+    @if(Model.Paid)
+    {
+      <input id="paid" name="paid" value='true' checked type="checkbox">
+    }
+    else
+    {
+      <input id="paid" name="paid" value='true'  type="checkbox">
+    }
+    <button class="btn btn-primary" type="submit">Edit</button>
+  </form>
+  <hr>
+  <button class="btn btn-danger" onclick="window.location.href='/vendor/@Model.VendorId/order/@Model.Id';">Return to Order Page</button>
 </div>
-
 @Html.Partial("Header")
-  @Html.Partial("Footer")
+@Html.Partial("Footer")

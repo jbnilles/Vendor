@@ -3,8 +3,7 @@
 }
 <div class="container">
   <h1>Add an Order</h1>
-<hr>
-
+  <hr>
   <form action="/vendor/@Model.Id/order/new" method="post">
     <label for="title">Order Title</label>
     <input id="title" name="title" type="text">
@@ -18,9 +17,7 @@
     <input id="paid" name="paid" value="true" type="checkbox">
     <button class="btn btn-primary" type="submit">Add</button>
   </form>
-
-
   <button class="btn btn-outline-danger" onclick="window.location.href='/vendor';">Vendors Page</button>
 </div>
 @Html.Partial("Header")
-  @Html.Partial("Footer")
+@Html.Partial("Footer")

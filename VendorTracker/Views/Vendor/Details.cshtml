@@ -6,60 +6,49 @@
   @if(Model == null)
   {
     <h1>The Vendor Does Not Exist</h1>
-    
   }
   else
   {
-    
-      <div class="jumbotron">
-        <h1>Welcome to @Model.Name Page</h1>
-        <h6>@Model.Description</h6>
-      </div>
-
-      <div id="vendorDetails">
-        @if(Model.getOrderCount() == 0)
-        {
-          <h1>There are currently no Orders!</h1>
-          <hr>
-        }
-        else
-        {
-          <ul>
+    <div class="jumbotron">
+      <h1>Welcome to @Model.Name Page</h1>
+      <h6>@Model.Description</h6>
+    </div>
+    <div id="vendorDetails">
+      @if(Model.getOrderCount() == 0)
+      {
+        <h1>There are currently no Orders!</h1>
+        <hr>
+      }
+      else
+      {
+        <ul>
           @foreach (Order o in Model.getOrders())
           {
-              <li>
-                <a href="/vendor/@Model.Id/order/@o.Id">@o.Title:</a> | <a href="/vendor/@Model.Id/order/@o.Id/delete">delete</a>
-                <ul>
-                  <li>Date: @o.OrderDate.ToShortDateString()</li>
-                  <li>Price: $@o.Price</li>
-                  @if(@o.Paid)
-                  {
-                    <li>Paid</li>
-                  }
-                  else
-                  {
-                    <li>Not Paid</li>
-                  }
-                </ul>
-              </li>
+            <li>
+              <a href="/vendor/@Model.Id/order/@o.Id">@o.Title:</a> | <a href="/vendor/@Model.Id/order/@o.Id/delete">delete</a>
+              <ul>
+                <li>Date: @o.OrderDate.ToShortDateString()</li>
+                <li>Price: $@o.Price</li>
+                @if(@o.Paid)
+                {
+                  <li>Paid</li>
+                }
+                else
+                {
+                  <li>Not Paid</li>
+                }
+              </ul>
+            </li>
           } 
-          </ul>
-        }
-
-
-      </div>
-
+        </ul>
+      }
+    </div>
       <button class="btn btn-outline-danger" onclick="window.location.href='/vendor/@Model.Id/order/new';">Add a new order</button>
       <button class="btn btn-outline-danger" onclick="window.location.href='/vendor/@Model.Id/edit';">Edit Current Vendor</button>
       <button class="btn btn-outline-danger" onclick="window.location.href='/vendor';">Vendors Page</button>
       <button class="btn btn-outline-danger" onclick="window.location.href='/vendor/@Model.Id/order/deleteAll';">Delete All Orders</button>
-      
-
-
-      
-    
   }
 </div>
 
 @Html.Partial("Header")
-  @Html.Partial("Footer")
+@Html.Partial("Footer")

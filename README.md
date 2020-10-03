@@ -6,7 +6,7 @@
 
 ## Description
 
-_This program lets you add vendors and then you can add orders to each vendor and and edit and delete both orders and venders_
+_This program lets you add vendors and then you can add orders to each vendor and and edit and delete both orders and venders. There are buttons for navigation through the pages. The projecet uses the MVC structure._
 
 
 
@@ -25,7 +25,7 @@ _This program lets you add vendors and then you can add orders to each vendor an
 
 ## Known Bugs
 
-_Cannot edit an order from not paid to paid_
+_ FIXED 10/2/2020 Cannot edit an order from not paid to paid,_
 
 ## Support and contact details
 
@@ -33,7 +33,7 @@ _Contact author at jbnilles24@gmail.com_
 
 ## Technologies Used
 
-_C# was used in creating this application._
+_C#, HTML, CSS was used in creating this application._
 
 ### License
 

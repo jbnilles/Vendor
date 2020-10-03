@@ -3,21 +3,16 @@
   Layout = "_Layout";
 }
 <div class="container">
-@if(Model == null)
-{
-  <h1>The Order Does Not Exist</h1>
-  
-}
-else
-{
-  
+  @if(Model == null)
+  {
+    <h1>The Order Does Not Exist</h1>
+  }
+  else
+  {
     <div class="jumbotron">
       <h1>Order Page</h1>
-      
     </div>
-
     <div id="orderDetails">
-      
       <ul>
         <li>
           @Model.Title
@@ -36,18 +31,10 @@ else
           </ul>
         </li>
       </ul>
-      
-
-
     </div>
-
-
-    
     <button class="btn btn-danger" onclick="window.location.href='/vendor/@Model.VendorId';">Return to @Model.VendorName Page</button>
     <button class="btn btn-danger" onclick="window.location.href='/vendor/@Model.VendorId/order/@Model.Id/edit';">Edit Order</button>
-    
-  
-}
+  }
 </div>
 @Html.Partial("Header")
-  @Html.Partial("Footer")
+@Html.Partial("Footer")
