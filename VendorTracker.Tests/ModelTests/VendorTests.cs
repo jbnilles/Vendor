@@ -24,7 +24,7 @@ namespace VendorTracker.Tests
     public void AddOrder_AddOrderToInstanceOfVendor_Void()
     {
       VendorTracker.Models.Vendor newVendor = new Vendor("name", "description");
-      newVendor.addOrder(new Order("title","desc",2.2,DateTime.Now, newVendor.getOrders().Count));
+      newVendor.addOrder(new Order("title","desc",2.2,DateTime.Now, newVendor.getOrders().Count, newVendor.Name, newVendor.Id, true));
       Assert.AreEqual(newVendor.getOrders().Count,1);
     }
     [TestMethod]
@@ -37,7 +37,7 @@ namespace VendorTracker.Tests
     public void getOrdersCount_getCountOfOrdersForTheInstance_int()
     {
       VendorTracker.Models.Vendor newVendor = new Vendor("name", "description");
-      newVendor.addOrder(new Order("title","desc",2.2,DateTime.Now, newVendor.getOrders().Count));
+      newVendor.addOrder(new Order("title","desc",2.2,DateTime.Now, newVendor.getOrders().Count, newVendor.Name, newVendor.Id, true));
       Assert.AreEqual(newVendor.getOrderCount(),1);
     }
 
