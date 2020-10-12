@@ -32,8 +32,8 @@
         </li>
       </ul>
     </div>
-    <button class="btn btn-danger" onclick="window.location.href='/vendor/@Model.VendorId';">Return to @Model.VendorName Page</button>
-    <button class="btn btn-danger" onclick="window.location.href='/vendor/@Model.VendorId/order/@Model.Id/edit';">Edit Order</button>
+    <button class="btn btn-danger" onclick="window.location.href='/vendors/details/@Model.VendorId';">Return to @Model.VendorName Page</button>
+    <button class="btn btn-danger" onclick="window.location.href='/orders/edit/@Model.Id';">Edit Order</button>
   }
 </div>
 @Html.Partial("Header")

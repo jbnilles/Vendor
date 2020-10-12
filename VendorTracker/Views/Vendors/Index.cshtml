@@ -1,3 +1,4 @@
+
 @using VendorTracker.Models;
 @{
   Layout = "_Layout";
@@ -20,13 +21,13 @@
       <ul>
       @foreach (Vendor v in Model)
       {
-        <li><a href="/vendor/@v.Id">@v.Name</a> | <a href="/vendor/@v.Id/delete">delete</a></li>
+        <li><a href="/vendors/details/@v.Id">@v.Name</a> | <a href="/vendors/delete/@v.Id">delete</a></li>
       }
       </ul>
     }
     <hr>
-    <button class="btn btn-danger" onclick="window.location.href='/vendor/new';">Add a Vendor</button>
-    <button class="btn btn-danger" onclick="window.location.href='/vendor/deleteAll';">Delete all Vendors</button>
+    <button class="btn btn-danger" onclick="window.location.href='/vendors/create';">Add a Vendor</button>
+    <button class="btn btn-danger" onclick="window.location.href='/vendors/deleteAll';">Delete all Vendors</button>
   </div>
 </div>
 @Html.Partial("Header")

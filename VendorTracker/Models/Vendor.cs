@@ -7,7 +7,7 @@ namespace VendorTracker.Models
         public string Description {get;set;}
         public int Id {get;set;}
 
-        private List<Order> orders = new List<Order>{};
+        
 
         private static List<Vendor> _instances = new List<Vendor>{};
 
@@ -22,18 +22,8 @@ namespace VendorTracker.Models
         {
             return _instances;
         }
-        public void addOrder(Order order)
-        {
-            orders.Add(order);
-        }
-        public List<Order> getOrders()
-        {
-            return orders;
-        }
-        public int getOrderCount()
-        {
-            return orders.Count;
-        }
+        
+        
         public static Vendor getVendorById(int id)
         {
             foreach (Vendor item in _instances)
@@ -45,17 +35,7 @@ namespace VendorTracker.Models
             }
         return null;
         }
-        public Order getOrderById(int id)
-        {
-            foreach (Order item in orders)
-            {
-                if(item.Id == id)
-                {
-                    return item;
-                }
-            }
-            return null;
-        }
+        
         public void deleteVendor()
         {
             _instances.Remove(this);
@@ -64,14 +44,6 @@ namespace VendorTracker.Models
         {
             _instances.Clear();
         }
-        public void deleteOrder(int oId)
-        {
-            Order orderToBeDeleted = getOrderById(oId);
-            orders.Remove(orderToBeDeleted);
-        }
-        public void deleteAllOrders()
-        {
-            orders.Clear();
-        }
+        
     }
 }

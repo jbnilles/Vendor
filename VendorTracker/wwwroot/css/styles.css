@@ -23,7 +23,7 @@ div#footer {
   background-color: #ffb0b0;
 }
 .container {
-  background-color: blue;
+  background-color: aquamarine;
   padding-bottom: 50px;
   padding-top: 50px;
   margin-top: 50px;
@@ -34,4 +34,12 @@ body {
 .card {
   text-align: center;
   background-color: #d6d0d0;
+}
+form{
+  background-color: #d6d0d0;
+}
+img {
+    position: fixed;
+    left: 50px;
+    border; none;
 }

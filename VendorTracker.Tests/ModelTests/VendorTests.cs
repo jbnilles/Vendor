@@ -21,30 +21,38 @@ namespace VendorTracker.Tests
       CollectionAssert.AllItemsAreInstancesOfType(Vendor.getVendors(), typeof(Vendor));
     }
     [TestMethod]
-    public void AddOrder_AddOrderToInstanceOfVendor_Void()
+    public void GetVendorsById_getsAVendors_Vendor()
     {
-      VendorTracker.Models.Vendor newVendor = new Vendor("name", "description");
-      newVendor.addOrder(new Order("title","desc",2.2,DateTime.Now, newVendor.getOrders().Count, newVendor.Name, newVendor.Id, true));
-      Assert.AreEqual(newVendor.getOrders().Count,1);
+     Vendor v = new Vendor("bob", "");
+      Assert.IsInstanceOfType(Vendor.getVendorById(0), typeof(Vendor));
     }
     [TestMethod]
-    public void GetOrders_GetsOrderFromInstanceOfVendor_ListOrders()
+    public void DeleteVendor_RevmoveAVendors_Void()
     {
-      VendorTracker.Models.Vendor newVendor = new Vendor("name", "description");
-      CollectionAssert.AllItemsAreInstancesOfType(newVendor.getOrders(), typeof(Order));
-    }
-    [TestMethod]
-    public void getOrdersCount_getCountOfOrdersForTheInstance_int()
-    {
-      VendorTracker.Models.Vendor newVendor = new Vendor("name", "description");
-      newVendor.addOrder(new Order("title","desc",2.2,DateTime.Now, newVendor.getOrders().Count, newVendor.Name, newVendor.Id, true));
-      Assert.AreEqual(newVendor.getOrderCount(),1);
-    }
+     Vendor.deleteAllVendors();
 
+     Vendor v = new Vendor("bob", "");
+     v.deleteVendor();
+      Assert.AreEqual(Vendor.getVendors().Count, 0);
+    }
+    [TestMethod]
+    public void DeleteAllVendors_RemoveAllVendors_Void()
+    {
+     Vendor v = new Vendor("bob", "");
+     Vendor.deleteAllVendors();
+      Assert.AreEqual(Vendor.getVendors().Count, 0);
+    }
+    
+    
 
   }
 }
 
 
       
+      
+        
+        
+        
+        
       

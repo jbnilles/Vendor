@@ -13,7 +13,7 @@ namespace VendorTracker
         .UseIISIntegration()
         .UseStartup<Startup>()
         .Build();
-
+             
       host.Run();
     }
   }
